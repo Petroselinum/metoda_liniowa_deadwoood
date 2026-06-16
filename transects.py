@@ -32,14 +32,9 @@ def transects(num = 1, angle = 0, dist_start = 0, dist_end = 1128, dok = 2):
             coords_col.append(res)
 
         return coords_col
-    
 
-if __name__ == '__main__':
 
-    res = (transects(num = 6, angle = 0, dist_start=100))
-    print(res)
-    fig, ax = plt.subplots(figsize = (8,8))
-
+def plot_transects(res, ax):
     def wisl_plot():
         A = plt.Circle((0, 0), radius=1128, fill=False, color='black')
         B1 = plt.Circle((0, 0), radius=56, fill=False, color='black', linestyle = '--')
@@ -52,12 +47,19 @@ if __name__ == '__main__':
     if isinstance(res, tuple):
         ax.plot([res[0][0], res[1][0]], [res[0][1], res[1][1]], color = 'tab:blue')
         wisl_plot()
-        plt.show()
 
     else:
         for i in res:
             ax.plot([i[0][0], i[1][0]], [i[0][1], i[1][1]], color = 'tab:blue')
         wisl_plot()
-        plt.show()
+
+if __name__ == '__main__':
+
+    res = (transects(num = 3, angle = 30, dist_start=0))
+    
+    fig, ax = plt.subplots(figsize=(8, 8))
+    plot_transects(res, ax=ax)
+    plt.show()
+
 
 

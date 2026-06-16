@@ -64,6 +64,7 @@ if __name__ == '__main__':
         ax.add_patch(A)
         ax.add_patch(B1)
         ax.add_patch(B2)
+        ax.set_axis_off()
 
     
     for row in pow.itertuples():
